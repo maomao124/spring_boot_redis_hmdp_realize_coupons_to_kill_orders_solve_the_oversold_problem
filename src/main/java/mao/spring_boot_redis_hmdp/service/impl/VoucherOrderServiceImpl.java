@@ -57,7 +57,7 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         }
         //扣减库存
         UpdateWrapper<SeckillVoucher> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.setSql("stock = stock - 1").eq("voucher_id", voucherId);
+        updateWrapper.setSql("stock = stock - 1").eq("voucher_id", voucherId).gt("stock",0);
         boolean update = seckillVoucherService.update(updateWrapper);
         if (!update)
         {
