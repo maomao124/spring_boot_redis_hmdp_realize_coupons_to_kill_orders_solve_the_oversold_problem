@@ -1,20 +1,196 @@
-2022-05-15 21:42:19.781  INFO 9344 --- [restartedMain] OrdersSolveTheOversoldProblemApplication : Starting SpringBootRedisHmdpRealizeCouponsToKillOrdersSolveTheOversoldProblemApplication using Java 16.0.2 on mao with PID 9344 (H:\程序\大三下期\spring_boot_redis_hmdp实现优惠券秒杀下单_解决超卖问题\target\classes started by mao in H:\程序\大三下期\spring_boot_redis_hmdp实现优惠券秒杀下单_解决超卖问题)
-2022-05-15 21:42:19.783 DEBUG 9344 --- [restartedMain] OrdersSolveTheOversoldProblemApplication : Running with Spring Boot v2.6.7, Spring v5.3.19
-2022-05-15 21:42:19.784  INFO 9344 --- [restartedMain] OrdersSolveTheOversoldProblemApplication : The following 1 profile is active: "dev"
-2022-05-15 21:42:19.865  INFO 9344 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-15 21:42:19.865  INFO 9344 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-15 21:42:20.438  INFO 9344 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2022-05-15 21:42:20.439  INFO 9344 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-05-15 21:42:20.461  INFO 9344 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-2022-05-15 21:42:20.914  INFO 9344 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-05-15 21:42:20.921  INFO 9344 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-15 21:42:20.921  INFO 9344 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
-2022-05-15 21:42:20.981  INFO 9344 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-15 21:42:20.981  INFO 9344 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1115 ms
-2022-05-15 21:42:21.201  INFO 9344 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2022-05-15 21:42:21.291  INFO 9344 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2022-05-15 21:42:22.152  INFO 9344 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-15 21:42:22.194  INFO 9344 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-05-15 21:42:22.204  INFO 9344 --- [restartedMain] OrdersSolveTheOversoldProblemApplication : Started SpringBootRedisHmdpRealizeCouponsToKillOrdersSolveTheOversoldProblemApplication in 3.04 seconds (JVM running for 3.783)
-2022-05-15 21:42:28.465  INFO 9344 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-2022-05-15 21:42:28.465  INFO 9344 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-05-15 21:53:11.154 DEBUG 13948 --- [http-nio-8081-exec-50] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.155 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.156 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.158 DEBUG 13948 --- [http-nio-8081-exec-50] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.158 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.158 DEBUG 13948 --- [http-nio-8081-exec-50] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389209(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.159 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.159 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.160 DEBUG 13948 --- [http-nio-8081-exec-50] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.163 DEBUG 13948 --- [http-nio-8081-exec-100] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.164 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.164 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.165 DEBUG 13948 --- [http-nio-8081-exec-100] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.165 DEBUG 13948 --- [http-nio-8081-exec-100] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389210(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.165 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.166 DEBUG 13948 --- [http-nio-8081-exec-100] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.166 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.166 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.169 DEBUG 13948 --- [http-nio-8081-exec-65] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.172 DEBUG 13948 --- [http-nio-8081-exec-65] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.172 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.172 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.172 DEBUG 13948 --- [http-nio-8081-exec-65] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389211(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.173 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.173 DEBUG 13948 --- [http-nio-8081-exec-65] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.175 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.175 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.176 DEBUG 13948 --- [http-nio-8081-exec-52] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.177 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.177 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.178 DEBUG 13948 --- [http-nio-8081-exec-52] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.179 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.179 DEBUG 13948 --- [http-nio-8081-exec-52] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389212(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.180 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.180 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.181 DEBUG 13948 --- [http-nio-8081-exec-52] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.184 DEBUG 13948 --- [http-nio-8081-exec-85] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.185 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.185 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.186 DEBUG 13948 --- [http-nio-8081-exec-85] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.186 DEBUG 13948 --- [http-nio-8081-exec-85] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389213(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.186 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.187 DEBUG 13948 --- [http-nio-8081-exec-85] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.187 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.188 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.191 DEBUG 13948 --- [http-nio-8081-exec-53] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.191 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.192 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.192 DEBUG 13948 --- [http-nio-8081-exec-53] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.193 DEBUG 13948 --- [http-nio-8081-exec-53] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389214(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.193 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.194 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.194 DEBUG 13948 --- [http-nio-8081-exec-53] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.194 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.196 DEBUG 13948 --- [http-nio-8081-exec-35] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.197 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.198 DEBUG 13948 --- [http-nio-8081-exec-35] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.199 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.199 DEBUG 13948 --- [http-nio-8081-exec-35] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389215(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.200 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.200 DEBUG 13948 --- [http-nio-8081-exec-35] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.201 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.201 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.203 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.204 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.204 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.205 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.205 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.206 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389216(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.207 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.207 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.207 DEBUG 13948 --- [http-nio-8081-exec-54] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.210 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.211 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.211 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.211 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.212 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389217(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.212 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.213 DEBUG 13948 --- [http-nio-8081-exec-106] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.213 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.214 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.216 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.217 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.218 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.218 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.218 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389218(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.219 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.219 DEBUG 13948 --- [http-nio-8081-exec-8] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.220 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.220 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.223 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.224 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.224 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.224 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.225 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389219(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.225 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.226 DEBUG 13948 --- [http-nio-8081-exec-51] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.226 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.227 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.229 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.230 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.231 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389220(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.231 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.231 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.232 DEBUG 13948 --- [http-nio-8081-exec-69] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.233 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.234 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.234 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.236 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.237 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.237 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.238 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.239 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.239 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389221(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.240 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.240 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.240 DEBUG 13948 --- [http-nio-8081-exec-45] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.243 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.244 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.244 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.245 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.245 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389222(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.246 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.247 DEBUG 13948 --- [http-nio-8081-exec-102] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.247 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.247 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.250 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.251 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.252 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.253 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.254 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.254 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.255 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.255 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389223(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.256 DEBUG 13948 --- [http-nio-8081-exec-29] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.260 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.261 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.262 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.262 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389224(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.262 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.263 DEBUG 13948 --- [http-nio-8081-exec-10] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.263 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.264 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.264 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.267 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.268 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.268 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.268 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.268 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389225(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.269 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.270 DEBUG 13948 --- [http-nio-8081-exec-24] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.270 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.270 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.273 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.273 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.273 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.274 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.274 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.275 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389226(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.275 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.275 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.276 DEBUG 13948 --- [http-nio-8081-exec-40] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.279 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.280 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.280 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.281 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.281 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389227(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.281 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.282 DEBUG 13948 --- [http-nio-8081-exec-101] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.282 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.283 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.285 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.287 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.287 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.287 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.287 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389228(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.288 DEBUG 13948 --- [http-nio-8081-exec-46] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.288 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.289 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.289 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.291 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 1
+2022-05-15 21:53:11.292 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.m.SeckillVoucherMapper.selectById    : ==>  Preparing: SELECT voucher_id,stock,create_time,begin_time,end_time,update_time FROM tb_seckill_voucher WHERE voucher_id=?
+2022-05-15 21:53:11.292 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.m.SeckillVoucherMapper.selectById    : ==> Parameters: 2(Long)
+2022-05-15 21:53:11.293 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.VoucherOrderMapper.insert     : ==>  Preparing: INSERT INTO tb_voucher_order ( id, user_id, voucher_id ) VALUES ( ?, ?, ? )
+2022-05-15 21:53:11.293 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.VoucherOrderMapper.insert     : ==> Parameters: 50063818134389229(Long), 5(Long), 2(Long)
+2022-05-15 21:53:11.293 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.m.SeckillVoucherMapper.selectById    : <==      Total: 1
+2022-05-15 21:53:11.294 DEBUG 13948 --- [http-nio-8081-exec-73] m.s.mapper.VoucherOrderMapper.insert     : <==    Updates: 1
+2022-05-15 21:53:11.294 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.mapper.SeckillVoucherMapper.update   : ==>  Preparing: UPDATE tb_seckill_voucher SET stock = stock - 1 WHERE (voucher_id = ? AND stock > ?)
+2022-05-15 21:53:11.295 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.mapper.SeckillVoucherMapper.update   : ==> Parameters: 2(Long), 0(Integer)
+2022-05-15 21:53:11.297 DEBUG 13948 --- [http-nio-8081-exec-28] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.297 DEBUG 13948 --- [http-nio-8081-exec-49] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.298 DEBUG 13948 --- [http-nio-8081-exec-33] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.298 DEBUG 13948 --- [http-nio-8081-exec-32] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.298 DEBUG 13948 --- [http-nio-8081-exec-93] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.299 DEBUG 13948 --- [http-nio-8081-exec-82] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
+2022-05-15 21:53:11.299 DEBUG 13948 --- [http-nio-8081-exec-90] m.s.mapper.SeckillVoucherMapper.update   : <==    Updates: 0
